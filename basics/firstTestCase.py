@@ -1,6 +1,7 @@
 import re
 from playwright.sync_api import Playwright, sync_playwright, expect
 
+# function that automates browser behaviour
 # Main function
 def run(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=False, slow_mo=2000)
