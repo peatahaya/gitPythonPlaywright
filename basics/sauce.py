@@ -1,4 +1,5 @@
 import re
+import selectorVariables as sv
 from playwright.sync_api import Playwright, sync_playwright, expect
 
 # decorator -> login
@@ -10,27 +11,28 @@ def run(playwright: Playwright) -> None:
     context.tracing.start(screenshots=True, snapshots=True, sources=True)
 
     page = context.new_page()
-    page.goto("https://www.saucedemo.com/")
-    page.locator("[data-test=\"username\"]").click()
-    page.locator("[data-test=\"username\"]").fill("standard_user")
-    page.locator("[data-test=\"password\"]").click()
-    page.locator("[data-test=\"password\"]").fill("secret_sauce")
-    page.locator("[data-test=\"login-button\"]").click()
-    page.locator("[data-test=\"add-to-cart-sauce-labs-backpack\"]").click()
-    page.locator("[data-test=\"shopping-cart-link\"]").click()
-    page.locator("[data-test=\"checkout\"]").click()
-    page.locator("[data-test=\"firstName\"]").click()
-    page.locator("[data-test=\"firstName\"]").fill("Anakin")
-    page.locator("[data-test=\"firstName\"]").press("Tab")
-    page.locator("[data-test=\"lastName\"]").fill("Skywalker")
-    page.locator("[data-test=\"lastName\"]").press("Tab")
-    page.locator("[data-test=\"postalCode\"]").fill("87-900")
-    page.locator("[data-test=\"continue\"]").click()
-    page.locator("[data-test=\"finish\"]").click()
-    page.locator("[data-test=\"back-to-products\"]").click()
+    pl = page.locator
+    page.goto(sv.url)
+    pl(sv.username).click()
+    pl(sv.username).fill(sv.usernameDefault)
+    pl(sv.password).click()
+    pl(sv.password).fill(sv.passwordDefault)
+    pl(sv.loginButton).click()
+    pl(sv.addToCartButton).click()
+    pl(sv.shoppingCartLink).click()
+    pl(sv.checkout).click()
+    pl(sv.firstName).click()
+    pl(sv.firstName).fill(sv.firstNameValue)
+    pl(sv.firstName).press(sv.tabButton)
+    pl(sv.lastName).fill(sv.lastNameValue)
+    pl(sv.lastName).press(sv.tabButton)
+    pl(sv.postalCode).fill(sv.postalCodeValue)
+    pl(sv.continueButton).click()
+    pl(sv.finish).click()
+    pl(sv.backToProducts).click()
 
     # Stop tracing and export it into a zip archive.
-    context.tracing.stop(path="sauceTrace.zip")
+    context.tracing.stop(path="sauceTrace2.zip")
 
     # ---------------------
     context.close()
