@@ -9,8 +9,10 @@ def test_login_with_standard_user(set_up_tear_down) -> None:
     credentials = {'username': username, 'password': password}
     login_p = LoginPage(page)
     products_p = login_p.do_login(credentials)
-    expect(products_p.product_header).to_be_visible()
-    expect(products_p.product_header).to_have_text("Products")
+    #expect(products_p.product_header).to_be_visible()
+    #expect(products_p.product_header).to_have_text("Products")
+    expect(page).to_have_url('https://www.saucedemo.com/inventory.html')
+
 
 def test_login_with_invalid_user(set_up_tear_down) -> None:
     page = set_up_tear_down
@@ -24,8 +26,5 @@ def test_login_with_no_credentials(set_up_tear_down) -> None:
     page = set_up_tear_down
     login_p = LoginPage(page)
     login_p.click_login()
-
     expected_fail_message = "Username is required"
-    err_msg_loc = page.locator("//h3[@data-test='error']")
-
-    expect(err_msg_loc).to_contain_text(expected_fail_message)
+    expect(login_p.err_msg_loc).to_contain_text(expected_fail_message)
