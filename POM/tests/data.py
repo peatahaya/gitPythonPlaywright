@@ -8,6 +8,7 @@ password = 'secret_sauce'
 usernameInvalid = 'user'
 
 # Urls
+main_url = 'https://www.saucedemo.com/'
 inventory_url = 'https://www.saucedemo.com/inventory.html'
 item_url = 'https://www.saucedemo.com/inventory-item.html?id=0'
 cart_url = 'https://www.saucedemo.com/cart.html'
