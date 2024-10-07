@@ -3,10 +3,9 @@ from playwright.sync_api import Page, expect
 from POM.src.pages.LoginPage import LoginPage
 from POM.tests.data import username, password, usernameInvalid, inventory_url, item_url, cart_url, item_name, item_desc, \
     item_price, checkout_step_one_url, checkout_step_two_url, checkout_complete_url, main_url
-from POM.src.pages.CartPage import CartPage
 
-
-def test_end_to_end_flow(set_up_tear_down) -> None:
+# function that tests complete flow of ordering one product
+def test_ordering_one_product(set_up_tear_down) -> None:
     page = set_up_tear_down
     expect(page).to_have_url(main_url)
     credentials = {'username': username, 'password': password}

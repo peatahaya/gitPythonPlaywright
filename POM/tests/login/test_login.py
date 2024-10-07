@@ -3,8 +3,8 @@ from playwright.sync_api import Page, expect
 from POM.src.pages.LoginPage import LoginPage
 from POM.tests.data import username, password, usernameInvalid
 
-
-def xtest_login_with_standard_user(set_up_tear_down) -> None:
+# function that tests login with valid user data
+def test_login_with_standard_user(set_up_tear_down) -> None:
     page = set_up_tear_down
     credentials = {'username': username, 'password': password}
     login_p = LoginPage(page)
@@ -13,8 +13,8 @@ def xtest_login_with_standard_user(set_up_tear_down) -> None:
     expect(products_p.product_header).to_have_text("Products")
     expect(page).to_have_url('https://www.saucedemo.com/inventory.html')
 
-
-def xtest_login_with_invalid_user(set_up_tear_down) -> None:
+# fuction that tests login with invalid user data
+def test_login_with_invalid_user(set_up_tear_down) -> None:
     page = set_up_tear_down
     credentials = {'username': usernameInvalid, 'password': password}
     login_p = LoginPage(page)
@@ -23,7 +23,8 @@ def xtest_login_with_invalid_user(set_up_tear_down) -> None:
     expect(login_p.err_msg_loc).to_contain_text(expected_fail_message)
     expect(page).to_have_url('https://www.saucedemo.com/')
 
-def xtest_login_with_no_credentials(set_up_tear_down) -> None:
+# function that tests login with empty login fields
+def test_login_with_no_credentials(set_up_tear_down) -> None:
     page = set_up_tear_down
     login_p = LoginPage(page)
     login_p.click_login()

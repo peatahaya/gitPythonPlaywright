@@ -1,3 +1,4 @@
+from randomuser import RandomUser
 # Data for login
 
 # Valid user
@@ -24,6 +25,7 @@ item_desc = ("A red light isn't the desired state in "
 item_price = "9.99"
 
 # User information
-first_name = 'Anakin'
-last_name = 'Skywalker'
-postal_code = '87-100'
+user = RandomUser()
+first_name = user.get_first_name()
+last_name = user.get_last_name()
+postal_code = str(user.get_postcode())

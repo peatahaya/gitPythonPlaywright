@@ -2,9 +2,9 @@ from playwright.sync_api import Page, expect
 from POM.src.pages.LoginPage import LoginPage
 from POM.tests.data import username, password, usernameInvalid, inventory_url, main_url, item_url, cart_url, item_name, item_desc, \
     item_price
-from POM.src.pages.CartPage import CartPage
 
 
+# function that tests removing previosly added item from cart
 def test_add_and_remove_item(set_up_tear_down) -> None:
     page = set_up_tear_down
     credentials = {'username': username, 'password': password}

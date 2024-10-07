@@ -4,7 +4,8 @@ from POM.tests.data import username, password, usernameInvalid
 from POM.src.pages.LoginPage import LoginPage
 from POM.src.pages.ProductListPage import ProductListPage
 
-def xtest_logout(set_up_tear_down) -> None:
+# function that tests 'logout' funcionality
+def test_logout(set_up_tear_down) -> None:
     page = set_up_tear_down
     credentials = {'username': username, 'password': password}
     login_p = LoginPage(page)
