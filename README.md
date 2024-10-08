@@ -1,0 +1,1 @@
+[![Python application](https://github.com/peatahaya/gitPythonPlaywright/actions/workflows/python-app.yml/badge.svg?branch=develop)](https://github.com/peatahaya/gitPythonPlaywright/actions/workflows/python-app.yml)
