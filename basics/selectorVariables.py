@@ -1,0 +1,21 @@
+# selector variables for main file
+
+url = 'https://www.saucedemo.com/'
+username = "[data-test=\"username\"]"
+password = "[data-test=\"password\"]"
+loginButton = "[data-test=\"login-button\"]"
+usernameDefault = "standard_user"
+passwordDefault = "secret_sauce"
+addToCartButton = "[data-test=\"add-to-cart-sauce-labs-backpack\"]"
+shoppingCartLink = "[data-test=\"shopping-cart-link\"]"
+checkout = "[data-test=\"checkout\"]"
+firstName = "[data-test=\"firstName\"]"
+firstNameValue = "Anakin"
+tabButton = "Tab"
+lastName = "[data-test=\"lastName\"]"
+lastNameValue = "Skywalker"
+postalCode = "[data-test=\"postalCode\"]"
+postalCodeValue = "87-900"
+continueButton = "[data-test=\"continue\"]"
+finish = "[data-test=\"finish\"]"
+backToProducts = "[data-test=\"back-to-products\"]"
