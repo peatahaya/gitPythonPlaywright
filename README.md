@@ -1,1 +1,27 @@
-[![Python application](https://github.com/peatahaya/gitPythonPlaywright/actions/workflows/python-app.yml/badge.svg?branch=develop)](https://github.com/peatahaya/gitPythonPlaywright/actions/workflows/python-app.yml)
+This project is focused on automated testing using Python, Playwright and Pytest. Instruction below will guide you how to install all required modules and how to start testing process.
+
+1. First we have to create new project in our IDE (Pycharm, VSCode, etc.)
+2. Now we have to create specific folder structure. It is important because Page Object Model requires separeting page objects from tests.
+   
+![image](https://github.com/user-attachments/assets/2590fd16-53d4-4af6-89d5-34aef706c623)
+
+
+3. Remember that:
+   -tests have to be in 'tests' folder
+   -name of the test file should start with 'test_'
+   -test function name inside test file should start with 'test_'
+4. Now we have to install required modules via command line:
+   pip install pytest-playwright
+   playwright install
+   pip install pytest
+   pip install RandomUser (We will use this module to generate random user data)
+5. After successful instalations we can write our code
+6. To test our funcionalities we use commands below in terminal:
+   
+   pytest -s --headed --slowmo=1000 (this command will run tests in headed mode. It means our browser will open and we will see all the actions that playwright does according to our instructions. 'slowmo=1000' means, there will be 1000ms delay in playwright actions on page. Results of tests will appear in terminal.)
+
+   pytest test_example_name.py (this command will run tests inside test_example_name.py file only without opening a browser. Results will also appear in terminal.)
+
+   pytest /tests (this command runs all tests inside 'tests' folder without opening a browser)
+
+   pytest test_example_name.py::test_func_name (this command runs single function from 'test_example_name.py' file without opening a browser)
